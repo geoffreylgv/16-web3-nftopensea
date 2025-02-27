@@ -12,11 +12,10 @@ import "@openzeppelin/contracts/utils/Strings.sol";
 contract NFTOpensea is ERC721URIStorage {
     uint256 private _nextTokenId;
 
-    constructor() ERC721("NFTOpensea", "JAY") {}
+    constructor() ERC721("NFTOpensea", "JAY") {_nextTokenId=1;}
 
     function mint() public {
-        uint256 tokenId = _nextTokenId;
-        _safeMint(msg.sender, tokenId);
+         _safeMint(msg.sender,  _nextTokenId , "");
         _nextTokenId++;
     }
 
